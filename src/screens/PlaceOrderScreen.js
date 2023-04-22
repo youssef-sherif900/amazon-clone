@@ -50,7 +50,7 @@ function PlaceOrderScreen() {
         try {
             dispatch({type:'CREATE_REQUEST'})
 
-            const {data} = await axios.post('/api/order',{
+            const {data} = await axios.post('https://amazoneclonebackend.onrender.com/api/order',{
                 orderItems:cart.cartItems,
                 shippingAddress:cart.shippingAddress,
                 paymentMethod:cart.paymentMethod,

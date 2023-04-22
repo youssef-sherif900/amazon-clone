@@ -30,7 +30,7 @@ function SignupScreen() {
             return;
         }
         try{
-            const { data } = await Axios.post('/api/users/signup',{
+            const { data } = await Axios.post('https://amazoneclonebackend.onrender.com/api/users/signup',{
                 name,
                 email,
                 password,

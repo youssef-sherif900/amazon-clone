@@ -74,7 +74,7 @@ function OrderScreen() {
           try {
             dispatch({ type: 'PAY_REQUEST' });
             const { data } = await axios.put(
-              `/api/order/${order._id}/pay`,
+              `https://amazoneclonebackend.onrender.com/api/order/${order._id}/pay`,
               details,
               {
                 headers: { authorization: `Bearer ${userInfo.token}`},
@@ -97,7 +97,7 @@ function OrderScreen() {
         const fetchOrder = async() =>{
             try {
                 dispatch({type:'FETCH_REQUEST'});
-                const { data } =  await axios.get(`/api/order/${orderId}`
+                const { data } =  await axios.get(`https://amazoneclonebackend.onrender.com/api/order/${orderId}`
                 ,{
                     headers:{
                         authorization:`Bearer ${userInfo.token}`
@@ -126,7 +126,7 @@ function OrderScreen() {
         }
     } else {
         const loadPaypalScript = async ()=>{
-            const {data:clientId} = await axios.get('/api/keys/paypal',{
+            const {data:clientId} = await axios.get('https://amazoneclonebackend.onrender.com/api/keys/paypal',{
                 headers:{
                     authorization:`Bearer ${userInfo.token}`
                 }

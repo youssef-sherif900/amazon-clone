@@ -39,7 +39,7 @@ function ProductSceens() {
         const fetchData = async() =>{
           dispatch({type:"FETCH_REQUEST"})
           try {
-            const results = await axios.get(`/api/product/slug/${slug}`);
+            const results = await axios.get(`https://amazoneclonebackend.onrender.com/api/product/slug/${slug}`);
             dispatch({type:"FETCH_SUCCESS",payload:results.data})
           } catch (err) {
             dispatch({type:"FETCH_FAILED",payload:getError(err)})
@@ -54,7 +54,7 @@ function ProductSceens() {
       const addToCartHandler = async ()=>{
         const existItem = cart.cartItems.find((x) => x._id === product._id);
         const quantity = existItem ? existItem.quantity + 1 :1;
-        const {data} = await axios.get(`/api/product/${product._id}`);
+        const {data} = await axios.get(`https://amazoneclonebackend.onrender.com/api/product/${product._id}`);
         if(data.countInStock < quantity){
           window.alert('Sorry. Product is out of stock')
           return;

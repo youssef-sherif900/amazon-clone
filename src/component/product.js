@@ -15,7 +15,7 @@ const{ cart: {cartItems} } = state;
 const addToCartHandler = async (item ) =>{
   const existItem = cartItems.find((x) => x._id === product._id);
   const quantity = existItem ? existItem.quantity + 1 :1;
-  const {data} = await axios.get(`/api/product/${item._id}`) ;
+  const {data} = await axios.get(`"https://amazoneclonebackend.onrender.com/api/product/${item._id}`) ;
   if(data.countInStock < quantity){
     window.alert('Sorry. Product is out of stock')
     return;
