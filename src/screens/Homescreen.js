@@ -34,7 +34,7 @@ const [{loading,err,products},dispatch] = useReducer(reducer,{
     const fetchData = async() =>{
       dispatch({type:"FETCH_REQUEST"})
       try {
-        const results = await axios.get("/api/product");
+        const results = await axios.get("https://amazoneclonebackend.onrender.com/api/product");
         dispatch({type:"FETCH_SUCCESS",payload:results.data})
       } catch (error) {
         dispatch({type:"FETCH_FAILED",payload:error.message})
